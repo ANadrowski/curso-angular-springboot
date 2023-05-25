@@ -7,7 +7,9 @@ Repositório que armazena o código-fonte da aplicação desenvolvida durante o 
 ## Executando a aplicação
 
 > git clone https://github.com/ANadrowski/curso-angular-springboot.git
+
 > cd curso-angular-springboot/frontend
+
 > ng serve
 
 O frontend ficará disponível em: http://localhost:4200/
