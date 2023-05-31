@@ -22,7 +22,7 @@ O frontend ficará disponível em: http://localhost:4200/
 
 > mvn spring-boot:run
 
-O frontend ficará disponível em: http://localhost:8080/
+O backend ficará disponível em: http://localhost:8080/
 
 O banco de dados atual é o H2, que fica armazenado em memória. Futuramente será alterado para um SGDB. 
 
