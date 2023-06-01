@@ -28,13 +28,13 @@ public class CourseController {
         return courseRepository.findAll();
     }
 
-    /*  
     @GetMapping("/{id}")
-    public Course findById(@PathVariable Long id) {
-        return courseRepository.findById(id);
+    public ResponseEntity<Course> findById(@PathVariable Long id) {
+        return courseRepository.findById(id)
+            .map(record -> ResponseEntity.ok().body(record))
+            .orElse(ResponseEntity.notFound().build());
     }
-    */
-
+    
     @PostMapping
     public ResponseEntity<Course> create(@RequestBody Course course) {
         return ResponseEntity.status(HttpStatus.CREATED)
