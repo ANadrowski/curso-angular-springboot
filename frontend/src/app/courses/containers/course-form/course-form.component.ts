@@ -56,6 +56,7 @@ export class CourseFormComponent {
     this.snackBar.open('Erro ao salvar curso.', '', {duration: 5000});
   }
 
+  //Existe algum problema neste método, pois não está entrando nos IFs.
   public getErrorMessage(fieldName: string) {
     const field = this.form.get(fieldName);
 
@@ -65,7 +66,12 @@ export class CourseFormComponent {
 
     if (field?.hasError('minLength')) {
       const requiredLength = field.errors ? field.errors['minLength']['requiredLength'] : 5;
-      return `O tamanho mínimo precisar ser de ${requiredLength}`;
+      return `Tamanho mínimo precisa ser de ${requiredLength} caracteres`;
+    }
+
+    if (field?.hasError('maxLength')) {
+      const requiredLength = field.errors ? field.errors['maxLength']['requiredLength'] : 200;
+      return `Tamanho máximo excedido de ${requiredLength} caracteres`;
     }
 
     return 'Campo inválido.';
