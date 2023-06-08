@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import com.loiane.backend.enums.Category;
 import com.loiane.backend.model.Course;
 import com.loiane.backend.repository.CourseRepository;
 
@@ -22,7 +23,7 @@ public class BackendApplication {
 
 			Course c = new Course();
 			c.setName("Angular com Spring");
-			c.setCategory("Front-end");
+			c.setCategory(Category.FRONTEND);
 
 			courseRepository.save(c);
 		};

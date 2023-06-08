@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.loiane.backend.dto.CourseDTO;
 import com.loiane.backend.dto.mapper.CourseMapper;
+import com.loiane.backend.enums.Category;
 import com.loiane.backend.exception.RecordNotFoundException;
 import com.loiane.backend.repository.CourseRepository;
 
@@ -50,7 +51,7 @@ public class CourseService {
         return courseRepository.findById(id)
         .map(recordFound -> {
             recordFound.setName(course.name());
-            recordFound.setCategory(course.category());
+            recordFound.setCategory(Category.FRONTEND);
             return courseMapper.toDTO(courseRepository.save(recordFound));
         }).orElseThrow(() -> new RecordNotFoundException(id));
     }

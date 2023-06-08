@@ -3,6 +3,7 @@ package com.loiane.backend.dto.mapper;
 import org.springframework.stereotype.Component;
 
 import com.loiane.backend.dto.CourseDTO;
+import com.loiane.backend.enums.Category;
 import com.loiane.backend.model.Course;
 
 @Component
@@ -12,7 +13,7 @@ public class CourseMapper {
         if (course == null) {
             return null;
         }
-        return new CourseDTO(course.getId(), course.getName(), course.getCategory());
+        return new CourseDTO(course.getId(), course.getName(), "Front-end");
     }
 
     public Course toEntity(CourseDTO courseDTO) {
@@ -26,7 +27,7 @@ public class CourseMapper {
             course.setId(courseDTO.id());
         }
         course.setName(courseDTO.name());
-        course.setCategory(courseDTO.category());
+        course.setCategory(Category.FRONTEND);
         //Aqui não precisa setar o status, pois cada novo objeto já é setado como Ativo.
         return course;
     }
