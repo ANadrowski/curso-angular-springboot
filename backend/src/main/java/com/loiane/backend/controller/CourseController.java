@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.loiane.backend.dto.CourseDTO;
-import com.loiane.backend.model.Course;
 import com.loiane.backend.service.CourseService;
 
 import jakarta.validation.Valid;
@@ -45,12 +44,12 @@ public class CourseController {
     
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
-    public CourseDTO create(@RequestBody @Valid Course course) {
+    public CourseDTO create(@RequestBody @Valid @NotNull CourseDTO course) {
         return courseService.create(course);
     }
 
     @PutMapping("/{id}")
-    public CourseDTO update(@PathVariable @NotNull @Positive Long id, @RequestBody @Valid Course course) {
+    public CourseDTO update(@PathVariable @NotNull @Positive Long id, @RequestBody @Valid @NotNull CourseDTO course) {
         return courseService.update(id, course);
     }
 
