@@ -9,13 +9,15 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
 /*
- * Este é um record. Está disponível a partir do Java 14,
+ * Este é um record e está disponível a partir do Java 14.
  * No record, todos os dados devem ser passados dento do construtor,
- * e não existe setters. Já a recuperação dos dados podem ser feitas
- * através do getters.
- * Portanto, trata-se de uma classe imutável do Java.
+ * e não existe setters. Já a recuperação dos dados pode ser feita
+ * através dos getters.
+ * 
+ * Trata-se de uma classe imutável do Java.
+ * 
  * Outra diferença para uma classe normal é que os métodos 
- * getters não usam o prefixo get, devemos acessar diretamente
+ * getters não usam o prefixo get, portanto devemos acessar diretamente
  * pelo nome da propriedade.
  */
 
