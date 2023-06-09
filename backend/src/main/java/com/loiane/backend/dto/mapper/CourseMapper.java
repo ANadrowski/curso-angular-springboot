@@ -27,7 +27,7 @@ public class CourseMapper {
             course.setId(courseDTO.id());
         }
         course.setName(courseDTO.name());
-        course.setCategory(Category.FRONTEND);
+        course.setCategory(Category.FRONT_END);
         //Aqui não precisa setar o status, pois cada novo objeto já é setado como Ativo.
         return course;
     }
