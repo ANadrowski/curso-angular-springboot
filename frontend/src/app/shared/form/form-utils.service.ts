@@ -19,7 +19,6 @@ export class FormUtilsService {
         this.validateAllFormFields(control);
       }
     });
-
   }
 
   public getErrorMessage(formGroup: UntypedFormGroup, fieldName: string) {

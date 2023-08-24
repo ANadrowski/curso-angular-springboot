@@ -7,6 +7,7 @@ import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { Course } from '../../model/course';
 import { Lesson } from '../../model/lesson';
+import { FormUtilsService } from 'src/app/shared/form/form-utils.service';
 
 @Component({
   selector: 'app-course-form',
@@ -21,7 +22,8 @@ export class CourseFormComponent {
     private service: CoursesService,
     private snackBar: MatSnackBar,
     private location: Location,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+    public formUtils: FormUtilsService) {
       const course: Course = this.route.snapshot.data['course'];
       this.form = this.formBuilder.group({
       _id: [course._id],
@@ -31,8 +33,8 @@ export class CourseFormComponent {
       category: [course.category, [Validators.required]],
       lessons: this.formBuilder.array(this.retriveLessons(course), Validators.required)
     });
-    console.log(this.form);
-    console.log(this.form.value);
+    //console.log(this.form);
+    //console.log(this.form.value);
   }
 
   private retriveLessons(course: Course) {
@@ -80,7 +82,8 @@ export class CourseFormComponent {
           this.onError();
         });
     } else {
-      alert('form invalido');
+      //alert('form invalido');
+      this.formUtils.validateAllFormFields(this.form);
     }
   }
 
@@ -98,6 +101,7 @@ export class CourseFormComponent {
   }
 
   //Existe algum problema neste método, pois não está entrando nos IFs.
+  /*
   public getErrorMessage(fieldName: string) {
     const field = this.form.get(fieldName);
 
@@ -117,10 +121,13 @@ export class CourseFormComponent {
 
     return 'Campo inválido.';
   }
+  */
 
+  /*
   isFormArrayRequired() {
     const lessons = this.form.get('lessons') as UntypedFormArray;
     return !lessons.valid && lessons.hasError('required') && lessons.touched;
   }
+  */
 
 }
